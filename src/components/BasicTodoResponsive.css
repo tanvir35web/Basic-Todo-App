@@ -1,6 +1,6 @@
 @media screen and (max-width: 545px) {
     .container {  
-      width: 97vw;
+      width: 94vw;
     }
     
     .container h1 {
@@ -11,7 +11,7 @@
   
     .formInput {
       margin-bottom: 20px;
-      width: 97vw;
+      width: 94vw;
       padding: 10px 20px;
       border-radius: 10px;
     }
@@ -20,7 +20,7 @@
       background-color: rgba(255, 255, 255, 0.275);
       font-size: 16px;
       padding: 5px;
-      width: 230px;
+      width: 222px;
     }
     
     .formInput button {
@@ -32,7 +32,7 @@
   .taskList {
     margin: 5px 0;
     font-size: 16px;
-    width: 97vw;
+    width: 94vw;
     padding: 10px 20px;
   }
   
