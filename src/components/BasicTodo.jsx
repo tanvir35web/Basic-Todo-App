@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdOutlineEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-import { IoMdAdd } from "react-icons/io";
+
 
 const BasicTodo = () => {
   const [tasks, setTasks] = useState([]);
   const [input, setInput] = useState("");
+
+  // for local storage start
+
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (storedTasks) {
+      setTasks(storedTasks);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
+  // for local storage end
 
   function handleAddTask() {
     if (input !== "") {
