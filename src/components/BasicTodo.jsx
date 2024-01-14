@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import './BasicTodoResponsive.css'
 
 
 const BasicTodo = () => {
@@ -8,7 +9,7 @@ const BasicTodo = () => {
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
 
-  // for local storage start
+
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
@@ -22,7 +23,7 @@ const BasicTodo = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  // for local storage end
+
 
   function handleAddTask() {
     if (input !== "") {
