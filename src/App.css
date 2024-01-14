@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  /* background-color: #4596a628; */
+  width: 530px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.container h1 {
+  width: 530px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 47, 56, 0.677);
+}
+
+.formInput {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  background-color: #4596a628;
+  width: 530px;
+  padding: 30px 30px;
+  border-radius: 10px;
+}
+
+.formInput input {
+  background-color: rgba(255, 255, 255, 0.275);
+  font-size: 22px;
+  padding: 10px;
+  color: rgb(48, 48, 48);
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+}
+
+.formInput button {
+  background-color: rgba(255, 255, 255, 0.275);
+  padding: 20px 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+}
+
+.taskList {
+  background-color: rgba(106, 145, 131, 0.2);
+  margin: 5px 0;
+  list-style: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  width: 530px;
+  padding: 20px 30px;
+}
+
+.taskList button {
+  font-size: 16px;
+  padding: 10px;
+}
