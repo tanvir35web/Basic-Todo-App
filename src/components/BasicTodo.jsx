@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 const BasicTodo = () => {
   const [tasks, setTasks] = useState([]);
   const [input, setInput] = useState("");
+  const inputRef = useRef(null);
 
   // for local storage start
 
@@ -14,6 +15,7 @@ const BasicTodo = () => {
     if (storedTasks) {
       setTasks(storedTasks);
     }
+    inputRef.current.focus();
   }, []);
 
   useEffect(() => {
@@ -26,6 +28,7 @@ const BasicTodo = () => {
     if (input !== "") {
       setTasks([...tasks, input]);
       setInput("");
+      
     }
   }
 
@@ -33,6 +36,12 @@ const BasicTodo = () => {
     const newTasks = [...tasks];
     newTasks.splice(index, 1);
     setTasks(newTasks);
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      handleAddTask();
+    }
   }
 
   return (
@@ -47,9 +56,12 @@ const BasicTodo = () => {
           <form className="formInput">
             <input
               type="text"
-              placeholder="add task here..."
+              placeholder="add task here . . ."
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyPress={handleKeyPress}
+              ref={inputRef}
+
             />
             <button type="button" onClick={handleAddTask}>
               Add
