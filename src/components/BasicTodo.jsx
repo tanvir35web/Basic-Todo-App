@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import "./BasicTodoResponsive.css";
-import { motion } from "framer-motion"            
+import { motion } from "framer-motion";
 
 const BasicTodo = () => {
     const [tasks, setTasks] = useState([]);
@@ -36,7 +36,7 @@ const BasicTodo = () => {
 
     function handleKeyPress(event) {
         if (event.key === "Enter") {
-          event.preventDefault();
+            event.preventDefault();
             handleAddTask();
         }
     }
@@ -51,7 +51,8 @@ const BasicTodo = () => {
 
                 <div className="add">
                     <form className="formInput">
-                        <input
+                        <motion.input
+                            whileTap={{ scale: 0.98 }}
                             type="text"
                             placeholder="add task here . . ."
                             value={input}
@@ -59,22 +60,34 @@ const BasicTodo = () => {
                             onKeyPress={handleKeyPress}
                             ref={inputRef}
                         />
-                        <button type="button" onClick={handleAddTask}>
+                        <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            className="addButton"
+                            type="button"
+                            onClick={handleAddTask}
+                        >
                             Add
-                        </button>
+                        </motion.button>
                     </form>
 
-                    <ul>
+                    <ul className="unOrderList">
                         {tasks.map((task, index) => (
-                            <li className="taskList" key={index}>
-                                {task}{" "}
-                                <div
+                            <motion.li
+                                initial={{ y: -200, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                className="taskList"
+                                key={index}
+                            >
+                                {task}
+                                <motion.div
+                                    className="deleteButton"
+                                    whileTap={{ scale: 0.9 }}
                                     type="button"
                                     onClick={() => handleDeleteTask(index)}
                                 >
                                     <MdDelete />
-                                </div>
-                            </li>
+                                </motion.div>
+                            </motion.li>
                         ))}
                     </ul>
                 </div>

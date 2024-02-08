@@ -1,41 +1,41 @@
 @media screen and (max-width: 545px) {
-    .container {  
-      width: 94vw;
+    .container {
+        width: 94vw;
     }
-    
+
     .container h1 {
-      width: 90vw;
-      margin-bottom: 20px;
-      font-size: 20px;
+        width: 90vw;
+        margin-bottom: 20px;
+        font-size: 20px;
     }
-  
+
     .formInput {
-      margin-bottom: 20px;
-      width: 94vw;
-      padding: 10px 20px;
-      border-radius: 10px;
+        margin-bottom: 20px;
+        width: 94vw;
+        padding: 10px 20px;
+        border-radius: 10px;
     }
-    
+
     .formInput input {
-      background-color: rgba(255, 255, 255, 0.275);
-      font-size: 16px;
-      padding: 5px;
-      width: 222px;
+        background-color: rgba(255, 255, 255, 0.275);
+        font-size: 16px;
+        padding: 5px;
+        width: 222px;
     }
-    
+
     .formInput button {
-      padding: 5px 20px;
-      font-size: 14px;
-  
+        padding: 5px 20px;
+        font-size: 14px;
     }
-  
-  .taskList {
-    margin: 5px 0;
-    font-size: 16px;
-    width: 94vw;
-    padding: 10px 20px;
-  }
-  
-    
-  }
-  
+
+    .unOrderList {
+        margin-bottom: 20px;
+    }
+
+    .taskList {
+        margin: 5px 0;
+        font-size: 16px;
+        width: 94vw;
+        padding: 10px 20px;
+    }
+}
