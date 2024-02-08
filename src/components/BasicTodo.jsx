@@ -25,7 +25,7 @@ const BasicTodo = () => {
 
     function handleAddTask() {
         if (input.trim() !== "") {
-            setTasks([...tasks, { task: input, checked: false }]);
+            setTasks([...tasks, { item: input, checked: false }]);
             setInput("");
         }
     }
@@ -94,7 +94,7 @@ const BasicTodo = () => {
                                         opacity: task.checked ? 0.5 : 1,
                                     }}
                                 >
-                                    {task.task}
+                                    {task.item}
                                 </span>
                                 <div className="symbols">
                                     <span
