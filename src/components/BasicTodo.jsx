@@ -43,10 +43,25 @@ const BasicTodo = () => {
         }
     }
 
+    // function handleChecked(index) {
+    //     const newTasks = [...tasks];
+    //     newTasks[index].checked = !newTasks[index].checked;
+    //     setTasks(newTasks);
+    // }
+
+    // Automatically Checked item moved to Last item
+
     function handleChecked(index) {
-        const newTasks = [...tasks];
-        newTasks[index].checked = !newTasks[index].checked;
-        setTasks(newTasks);
+        setTasks((prevTasks) => {
+            const newTasks = [...prevTasks];
+            const checkedTask = {
+                ...newTasks[index],
+                checked: !newTasks[index].checked,
+            };
+            newTasks.splice(index, 1);
+            newTasks.push(checkedTask);
+            return newTasks;
+        });
     }
 
     return (
