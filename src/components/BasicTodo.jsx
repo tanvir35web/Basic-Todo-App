@@ -104,28 +104,37 @@ const BasicTodo = () => {
                                 initial={{ y: -200, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 className="taskList"
-                                key={index}
+                                key={index} 
                             >
-                                <span
-                                    style={{
-                                        textDecoration: task.checked
-                                            ? "line-through"
-                                            : "none",
-                                        opacity: task.checked ? 0.5 : 1,
-                                    }}
-                                >
-                                    {task.item}
-                                </span>
-                                <div className="symbols">
+                                <div className="contentWrapper">
                                     <span
+                                        style={{
+                                            width: "30px",
+                                        }}
+                                    >
+                                        {index + 1}.{" "}
+                                    </span>
+                                    <span
+                                        style={{
+                                            textDecoration: task.checked
+                                                ? "line-through"
+                                                : "none",
+                                            opacity: task.checked ? 0.5 : 1,
+                                        }}
+                                    >
+                                        {task.item}
+                                    </span>
+                                </div>
+                                <div className="symbols">
+                                    <motion.span whileTap={{ scale: 0.9 }}
                                         onClick={() =>
                                             handleCopyTask(task.item)
                                         }
                                         className="copyIcon"
                                     >
                                         <MdOutlineContentCopy />
-                                    </span>
-                                    <span
+                                    </motion.span>
+                                    <motion.span whileTap={{ scale: 0.9 }}
                                         onClick={() => handleChecked(index)}
                                         className="toggleChecked"
                                     >
@@ -134,7 +143,7 @@ const BasicTodo = () => {
                                         ) : (
                                             <FaRegCircleCheck />
                                         )}
-                                    </span>
+                                    </motion.span>
 
                                     <motion.div
                                         whileTap={{ scale: 0.9 }}
