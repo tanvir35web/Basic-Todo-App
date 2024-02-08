@@ -95,6 +95,7 @@
     gap: 30px;
 }
 
-.toggleChecked {
+.toggleChecked,
+.copyIcon {
     display: flex;
 }

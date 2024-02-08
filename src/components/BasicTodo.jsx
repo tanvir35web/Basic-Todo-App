@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { MdOutlineEditNote } from "react-icons/md";
+import { MdOutlineContentCopy, MdOutlineEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import "./BasicTodoResponsive.css";
 import { motion } from "framer-motion";
@@ -64,6 +64,11 @@ const BasicTodo = () => {
         });
     }
 
+    function handleCopyTask(task) {
+        console.log("");
+        navigator.clipboard.writeText(task);
+    }
+
     return (
         <>
             <div className="container">
@@ -112,6 +117,14 @@ const BasicTodo = () => {
                                     {task.item}
                                 </span>
                                 <div className="symbols">
+                                    <span
+                                        onClick={() =>
+                                            handleCopyTask(task.item)
+                                        }
+                                        className="copyIcon"
+                                    >
+                                        <MdOutlineContentCopy />
+                                    </span>
                                     <span
                                         onClick={() => handleChecked(index)}
                                         className="toggleChecked"
