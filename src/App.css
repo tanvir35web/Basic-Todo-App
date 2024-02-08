@@ -82,8 +82,19 @@
 
 .deleteButton {
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .addButton {
     cursor: pointer;
+}
+
+.symbols {
+    display: flex;
+    gap: 30px;
+}
+
+.toggleChecked {
+    display: flex;
 }

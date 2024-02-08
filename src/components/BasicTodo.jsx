@@ -3,6 +3,8 @@ import { MdOutlineEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import "./BasicTodoResponsive.css";
 import { motion } from "framer-motion";
+import { FaCircleCheck } from "react-icons/fa6";
+import { FaRegCircleCheck } from "react-icons/fa6";
 
 const BasicTodo = () => {
     const [tasks, setTasks] = useState([]);
@@ -22,8 +24,8 @@ const BasicTodo = () => {
     }, [tasks]);
 
     function handleAddTask() {
-        if (input !== "") {
-            setTasks([...tasks, input]);
+        if (input.trim() !== "") {
+            setTasks([...tasks, { task: input, checked: false }]);
             setInput("");
         }
     }
@@ -39,6 +41,12 @@ const BasicTodo = () => {
             event.preventDefault();
             handleAddTask();
         }
+    }
+
+    function handleChecked(index) {
+        const newTasks = [...tasks];
+        newTasks[index].checked = !newTasks[index].checked;
+        setTasks(newTasks);
     }
 
     return (
@@ -78,15 +86,37 @@ const BasicTodo = () => {
                                 className="taskList"
                                 key={index}
                             >
-                                {task}
-                                <motion.div
-                                    className="deleteButton"
-                                    whileTap={{ scale: 0.9 }}
-                                    type="button"
-                                    onClick={() => handleDeleteTask(index)}
+                                <span
+                                    style={{
+                                        textDecoration: task.checked
+                                            ? "line-through"
+                                            : "none",
+                                        opacity: task.checked ? 0.5 : 1,
+                                    }}
                                 >
-                                    <MdDelete />
-                                </motion.div>
+                                    {task.task}
+                                </span>
+                                <div className="symbols">
+                                    <span
+                                        onClick={() => handleChecked(index)}
+                                        className="toggleChecked"
+                                    >
+                                        {task.checked ? (
+                                            <FaCircleCheck />
+                                        ) : (
+                                            <FaRegCircleCheck />
+                                        )}
+                                    </span>
+
+                                    <motion.div
+                                        whileTap={{ scale: 0.9 }}
+                                        className="deleteButton"
+                                        type="button"
+                                        onClick={() => handleDeleteTask(index)}
+                                    >
+                                        <MdDelete />
+                                    </motion.div>
+                                </div>
                             </motion.li>
                         ))}
                     </ul>
