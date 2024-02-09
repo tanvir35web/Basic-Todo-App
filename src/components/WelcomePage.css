@@ -1,0 +1,110 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg");
+    background-repeat: no-repeat;
+    width: 100vw;
+    background-size: cover;
+    color: white;
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.318); /* Adjust opacity as needed */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 400px;
+    margin-top: 70px;
+}
+
+input {
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.43);
+    padding: 5px;
+    color: rgba(255, 255, 255, 0.759);
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginBtn {
+    margin-top: 20px;
+    background-color: #4096ff;
+    color: white;
+    padding: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.loginBtn:hover {
+    background-color: #025dcc;
+}
+
+.circleWrapper {
+    background: #00000015;
+    aspect-ratio: 1;
+    padding: 120px;
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.415);
+}
+
+.newAccount {
+    color: rgba(255, 255, 255, 0.606);
+    cursor: pointer;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.132);
+}
+
+.demoUser {
+    color: rgba(255, 255, 255, 0.606);
+    margin-top: 10px;
+}
+
+/* -------------Responsive View-----------------  */
+
+@media screen and (max-width: 545px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 300px;
+        margin-top: 10px;
+    }
+
+    .loginBtn:hover {
+        background-color: #025dcc;
+    }
+
+    .circleWrapper {
+        background: #00000015;
+        aspect-ratio: 1;
+        padding: 120px;
+        border-radius: 50%;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.415);
+    }
+
+    .newAccount {
+        color: rgba(255, 255, 255, 0.606);
+        cursor: pointer;
+    }
+}

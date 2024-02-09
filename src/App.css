@@ -59,7 +59,7 @@
 }
 
 .unOrderList {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .taskList {
@@ -98,9 +98,27 @@
 .toggleChecked,
 .copyIcon {
     display: flex;
+    cursor: pointer;
 }
 
 .contentWrapper {
     display: flex;
     gap: 10px;
+}
+
+.logoutBtn {
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 10px;
+    background-color: white;
+    font-size: 16px;
+    color: rgb(195, 0, 0);
+    border: 1px solid rgb(116, 0, 0);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logoutBtn:hover {
+    background-color: rgb(156, 0, 0);
+    color: white;
 }

@@ -6,12 +6,33 @@ import { motion } from "framer-motion";
 import { FaCircleCheck } from "react-icons/fa6";
 import { FaRegCircleCheck } from "react-icons/fa6";
 
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Firebase";
+import { useNavigate } from "react-router-dom";
+
 const BasicTodo = () => {
     const [tasks, setTasks] = useState([]);
     const [input, setInput] = useState("");
     const inputRef = useRef(null);
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        signOut(auth)
+            .then(() => {
+                navigate("/");
+            })
+            .catch((err) => {
+                alert(err.message);
+            });
+    };
 
     useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            if(!user) {
+                navigate("/");
+            }
+        })
+
         const storedTasks = JSON.parse(localStorage.getItem("tasks"));
         if (storedTasks) {
             setTasks(storedTasks);
@@ -104,7 +125,7 @@ const BasicTodo = () => {
                                 initial={{ y: -200, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 className="taskList"
-                                key={index} 
+                                key={index}
                             >
                                 <div className="contentWrapper">
                                     <span
@@ -126,7 +147,8 @@ const BasicTodo = () => {
                                     </span>
                                 </div>
                                 <div className="symbols">
-                                    <motion.span whileTap={{ scale: 0.9 }}
+                                    <motion.span
+                                        whileTap={{ scale: 0.9 }}
                                         onClick={() =>
                                             handleCopyTask(task.item)
                                         }
@@ -134,7 +156,8 @@ const BasicTodo = () => {
                                     >
                                         <MdOutlineContentCopy />
                                     </motion.span>
-                                    <motion.span whileTap={{ scale: 0.9 }}
+                                    <motion.span
+                                        whileTap={{ scale: 0.9 }}
                                         onClick={() => handleChecked(index)}
                                         className="toggleChecked"
                                     >
@@ -157,6 +180,9 @@ const BasicTodo = () => {
                             </motion.li>
                         ))}
                     </ul>
+                    <button onClick={handleLogOut} className="logoutBtn">
+                        Logout
+                    </button>
                 </div>
             </div>
         </>
