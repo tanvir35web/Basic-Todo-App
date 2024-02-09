@@ -96,9 +96,10 @@ input {
 
     .circleWrapper {
         background: #00000015;
-        aspect-ratio: 1;
-        padding: 120px;
-        border-radius: 50%;
+        width: 322px;
+        height: 450px;
+        padding: 10px;
+        border-radius: 10px;
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.415);
     }

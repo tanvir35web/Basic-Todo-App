@@ -8,6 +8,7 @@ const WelcomePage = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isRegistering, setIsRegistering] = useState(false);
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -58,7 +59,7 @@ const WelcomePage = () => {
                         <button className="loginBtn" onClick={handleLogin}>
                             Login
                         </button>
-                        <p className="newAccount">Create new account</p>
+                        <p onClick={() => setIsRegistering(true)} className="newAccount">Create new account</p>
 
                         <div className="demoUser">
                             <p> Demo Email: admin@gmail.com </p>
